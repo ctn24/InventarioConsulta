@@ -4,8 +4,7 @@
              xmlns:local="clr-namespace:InventarioConsulta"
              x:Class="InventarioConsulta.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
+	<Label Text="Hola Benja!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
-
 </ContentPage>
