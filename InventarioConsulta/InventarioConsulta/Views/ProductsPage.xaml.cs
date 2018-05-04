@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace InventarioConsulta.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class InventoryPage : ContentPage
+	public partial class ProductsPage : ContentPage
 	{
-		public InventoryPage ()
+		public ProductsPage ()
 		{
 			InitializeComponent ();
 		}

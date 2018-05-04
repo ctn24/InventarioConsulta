@@ -10,7 +10,7 @@
     using System.Windows.Input;
     using Xamarin.Forms;
 
-    class InventoryViewModel : BaseViewModel
+    class ProductsViewModel : BaseViewModel
     {
         //#region Services
         //private ApiService apiService;

@@ -8,7 +8,7 @@
             get;
             set;
         }
-        public InventoryViewModel Inventory
+        public ProductsViewModel Products
         {
             get;
             set;

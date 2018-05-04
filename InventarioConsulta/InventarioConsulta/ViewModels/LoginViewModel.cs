@@ -107,8 +107,8 @@
             this.User = string.Empty;
             this.Password = string.Empty;
 
-            MainViewModel.GetInstance().Inventory = new InventoryViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new InventoryPage());
+            MainViewModel.GetInstance().Products = new ProductsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
         }
         #endregion
     }
