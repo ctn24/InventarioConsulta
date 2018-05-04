@@ -5,23 +5,31 @@
 
     public class Product
     {
-        public string Name { get; set; }
+        public string Key { get; set; }
 
-        public List<string> TopLevelDomain { get; set; }
+        public string Description { get; set; }
 
-        public string Alpha2Code { get; set; }
+        public string Existence { get; set; }
 
-        public string Alpha3Code { get; set; }
+        public string PromoQuantity { get; set; }
 
-        public List<string> CallingCodes { get; set; }
+        public string PromoPrice { get; set; }
 
-        public string Capital { get; set; }
+        public string ListPrice { get; set; }
 
-        public List<string> AltSpellings { get; set; }
+        public string CashPrice { get; set; }
 
-        public string Region { get; set; }
+        public string WholesalePrice { get; set; }
 
-        public List<double> Latlng { get; set; }
+        public string WholesalersPrice { get; set; }
+
+        public string Coin { get; set; }
+
+        public string Observations { get; set; }
+
+        //public List<string> CallingCodes { get; set; }
+
+        //public List<double> Latlng { get; set; }
 
     }
 }
