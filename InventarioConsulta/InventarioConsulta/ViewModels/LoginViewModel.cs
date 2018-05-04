@@ -7,18 +7,51 @@
 
     public class LoginViewModel : BaseViewModel
     {
-        #region Attributes
-        private string user1;
-        private string password;
-        private bool isRunning;
-        private bool isEnabled;
-        #endregion
+        //#region Attributes
+        //private string user;
+        //private string password;
+        //private bool isRunning;
+        //private bool isEnabled;
+        //#endregion
 
         #region Properties
-        public string User1
+        public string User
         {
-            get { return this.user1; }
-            set { SetValue(ref this.user1, value); }
+            get;
+            set;
+        }
+
+        public string Password
+        {
+            get;
+            set;
+        }
+
+        public bool IsRunning
+        {
+            get;
+            set;
+        }
+
+        public bool IsRemembered
+        {
+            get;
+            set;
+        }
+
+        public bool IsEnabled
+        {
+            get;
+            set;
+        }
+        #endregion
+
+        /*
+        #region Properties
+        public string User
+        {
+            get { return this.user; }
+            set { SetValue(ref this.user, value); }
         }
 
         public string Password
@@ -45,6 +78,7 @@
             set { SetValue(ref this.isEnabled, value); }
         }
         #endregion
+        */
 
         #region Constructors
         public LoginViewModel()
@@ -52,8 +86,8 @@
             this.IsRemembered = true;
             this.IsEnabled = true;
 
-            this.user1 = "ctn";
-            this.Password = "1234";
+            //this.User = "ctn";
+            //this.Password = "1234";
         }
         #endregion
 
@@ -68,7 +102,7 @@
 
         private async void Login()
         {
-            if (string.IsNullOrEmpty(this.User1))
+            if (string.IsNullOrEmpty(this.User))
             {
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
@@ -86,29 +120,29 @@
                 return;
             }
 
-            this.IsRunning = true;
-            this.IsEnabled = false;
+            //    this.IsRunning = true;
+            //    this.IsEnabled = false;
 
-            if (this.User1 != "ctn" || this.Password != "1234")
-            {
-                this.IsRunning = false;
-                this.IsEnabled = true;
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "Usuario o contraseña incorrecta.",
-                    "Aceptar");
-                this.Password = string.Empty;
-                return;
-            }
+            //    if (this.User != "ctn" || this.Password != "1234")
+            //    {
+            //        this.IsRunning = false;
+            //        this.IsEnabled = true;
+            //        await Application.Current.MainPage.DisplayAlert(
+            //            "Error",
+            //            "Usuario o contraseña incorrecta.",
+            //            "Aceptar");
+            //        this.Password = string.Empty;
+            //        return;
+            //    }
 
-            this.IsRunning = false;
-            this.IsEnabled = true;
+            //    this.IsRunning = false;
+            //    this.IsEnabled = true;
 
-            this.User1 = string.Empty;
-            this.Password = string.Empty;
+            //    this.User = string.Empty;
+            //    this.Password = string.Empty;
 
-            MainViewModel.GetInstance().Inventory = new InventoryViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new InventoryPage());
+            //    MainViewModel.GetInstance().Inventory = new InventoryViewModel();
+            //    await Application.Current.MainPage.Navigation.PushAsync(new InventoryPage());
         }
         #endregion
     }
