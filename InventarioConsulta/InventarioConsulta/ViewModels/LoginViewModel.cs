@@ -7,46 +7,13 @@
 
     public class LoginViewModel : BaseViewModel
     {
-        //#region Attributes
-        //private string user;
-        //private string password;
-        //private bool isRunning;
-        //private bool isEnabled;
-        //#endregion
-
-        #region Properties
-        public string User
-        {
-            get;
-            set;
-        }
-
-        public string Password
-        {
-            get;
-            set;
-        }
-
-        public bool IsRunning
-        {
-            get;
-            set;
-        }
-
-        public bool IsRemembered
-        {
-            get;
-            set;
-        }
-
-        public bool IsEnabled
-        {
-            get;
-            set;
-        }
+        #region Attributes
+        private string user;
+        private string password;
+        private bool isRunning;
+        private bool isEnabled;
         #endregion
 
-        /*
         #region Properties
         public string User
         {
@@ -78,7 +45,6 @@
             set { SetValue(ref this.isEnabled, value); }
         }
         #endregion
-        */
 
         #region Constructors
         public LoginViewModel()
@@ -120,29 +86,29 @@
                 return;
             }
 
-            //    this.IsRunning = true;
-            //    this.IsEnabled = false;
+            this.IsRunning = true;
+            this.IsEnabled = false;
 
-            //    if (this.User != "ctn" || this.Password != "1234")
-            //    {
-            //        this.IsRunning = false;
-            //        this.IsEnabled = true;
-            //        await Application.Current.MainPage.DisplayAlert(
-            //            "Error",
-            //            "Usuario o contraseña incorrecta.",
-            //            "Aceptar");
-            //        this.Password = string.Empty;
-            //        return;
-            //    }
+            if (this.User != "ctn" || this.Password != "ctn")
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Usuario o contraseña incorrecta.",
+                    "Aceptar");
+                this.Password = string.Empty;
+                return;
+            }
 
-            //    this.IsRunning = false;
-            //    this.IsEnabled = true;
+            this.IsRunning = false;
+            this.IsEnabled = true;
 
-            //    this.User = string.Empty;
-            //    this.Password = string.Empty;
+            this.User = string.Empty;
+            this.Password = string.Empty;
 
-            //    MainViewModel.GetInstance().Inventory = new InventoryViewModel();
-            //    await Application.Current.MainPage.Navigation.PushAsync(new InventoryPage());
+            MainViewModel.GetInstance().Inventory = new InventoryViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new InventoryPage());
         }
         #endregion
     }
