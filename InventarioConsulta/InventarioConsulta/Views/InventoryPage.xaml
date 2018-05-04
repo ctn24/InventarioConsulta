@@ -5,18 +5,22 @@
     x:Class="InventarioConsulta.Views.InventoryPage"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
     BackgroundColor="Silver"
-    Title="Lands">
+    Title="Inventorio">
     <ContentPage.Content>
         <StackLayout
-            BindingContext="{Binding Lands}">
-            <Label 
-                Text="Holaaaa">
-            </Label>
+            BindingContext="{Binding Inventory}">
             <SearchBar
                 Element.HeightRequest = "50"
                 BackgroundColor="White"
-                Text="{Binding Filter, Mode=TwoWay}"
-                Placeholder="Search..."
+                Text="{Binding FilterC, Mode=TwoWay}"
+                Placeholder="Clave..."
+                SearchCommand="{Binding SearchCommand}">
+            </SearchBar>
+            <SearchBar
+                Element.HeightRequest = "50"
+                BackgroundColor="White"
+                Text="{Binding FilterD, Mode=TwoWay}"
+                Placeholder="Descripción..."
                 SearchCommand="{Binding SearchCommand}">
             </SearchBar>
             <ListView 
