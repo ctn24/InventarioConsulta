@@ -28,7 +28,7 @@
                 HasUnevenRows="true" 
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
-                ItemsSource="{Binding Lands}"
+                ItemsSource="{Binding Products}"
                 SeparatorVisibility="None"
                 RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
@@ -39,7 +39,7 @@
                                 HasShadow="true"
                                 Margin="5">
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding SelectProductCommand}"/>
                                 </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>

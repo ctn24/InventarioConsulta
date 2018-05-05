@@ -13,6 +13,12 @@
             get;
             set;
         }
+        public ProductsViewModel Product
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         #region Constructors

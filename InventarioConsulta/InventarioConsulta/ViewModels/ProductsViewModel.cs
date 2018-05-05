@@ -1,7 +1,7 @@
 ﻿namespace InventarioConsulta.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
-    //using Models;
+    using Models;
     //using Services;
     using System;
     using System.Collections.Generic;
@@ -16,150 +16,150 @@
         //private ApiService apiService;
         //#endregion
 
-        //#region Attributes
-        //private ObservableCollection<LandItemViewModel> lands;
-        //private bool isRefreshing;
-        //private string filter;
-        //#endregion
+        #region Attributes
+        private ObservableCollection<ProductItemViewModel> products;
+        private bool isRefreshing;
+        private string filter;
+        #endregion
 
-        //#region Properties
-        //public ObservableCollection<LandItemViewModel> Lands
-        //{
-        //    get { return this.lands; }
-        //    set { SetValue(ref this.lands, value); }
-        //}
+        #region Properties
+        public ObservableCollection<ProductItemViewModel> Products
+        {
+            get { return this.products; }
+            set { SetValue(ref this.products, value); }
+        }
 
-        //public bool IsRefreshing
-        //{
-        //    get { return this.isRefreshing; }
-        //    set { SetValue(ref this.isRefreshing, value); }
-        //}
+        public bool IsRefreshing
+        {
+            get { return this.isRefreshing; }
+            set { SetValue(ref this.isRefreshing, value); }
+        }
 
-        //public string Filter
-        //{
-        //    get { return this.filter; }
-        //    set
-        //    {
-        //        SetValue(ref this.filter, value);
-        //        this.Search();
-        //    }
-        //}
-        //#endregion
+        public string Filter
+        {
+            get { return this.filter; }
+            set
+            {
+                SetValue(ref this.filter, value);
+                this.Search();
+            }
+        }
+        #endregion
 
-        //#region Constructors
-        //public LandsViewModel()
-        //{
-        //    this.apiService = new ApiService();
-        //    this.LoadLands();
-        //}
-        //#endregion
+        #region Constructors
+        public ProductsViewModel()
+        {
+            //this.apiService = new ApiService();
+            this.LoadProducts();
+        }
+        #endregion
 
-        //#region Methods
-        //private async void LoadLands()
-        //{
-        //    this.IsRefreshing = true;
-        //    var connection = await this.apiService.CheckConnection();
+        #region Methods
+        private async void LoadProducts()
+        {
+            this.IsRefreshing = true;
+            //var connection = await this.apiService.CheckConnection();
 
-        //    if (!connection.IsSuccess)
-        //    {
-        //        this.IsRefreshing = false;
-        //        await Application.Current.MainPage.DisplayAlert(
-        //            "Error",
-        //            connection.Message,
-        //            "Accept");
-        //        await Application.Current.MainPage.Navigation.PopAsync();
-        //        return;
-        //    }
+            //if (!connection.IsSuccess)
+            //{
+            //    this.IsRefreshing = false;
+            //    await Application.Current.MainPage.DisplayAlert(
+            //        "Error",
+            //        connection.Message,
+            //        "Accept");
+            //    await Application.Current.MainPage.Navigation.PopAsync();
+            //    return;
+            //}
 
-        //    var response = await this.apiService.GetList<Land>(
-        //        "http://restcountries.eu",
-        //        "/rest",
-        //        "/v2/all");
+            //var response = await this.apiService.GetList<Product>(
+            //    "http://restcountries.eu",
+            //    "/rest",
+            //    "/v2/all");
 
-        //    if (!response.IsSuccess)
-        //    {
-        //        this.IsRefreshing = false;
-        //        await Application.Current.MainPage.DisplayAlert(
-        //            "Error",
-        //            response.Message,
-        //            "Accept");
-        //        await Application.Current.MainPage.Navigation.PopAsync();
-        //        return;
-        //    }
+            //if (!response.IsSuccess)
+            //{
+            //    this.IsRefreshing = false;
+            //    await Application.Current.MainPage.DisplayAlert(
+            //        "Error",
+            //        response.Message,
+            //        "Accept");
+            //    await Application.Current.MainPage.Navigation.PopAsync();
+            //    return;
+            //}
 
-        //    MainViewModel.GetInstance().LandsList = (List<Land>)response.Result;
-        //    this.Lands = new ObservableCollection<LandItemViewModel>(
-        //        this.ToLandItemViewModel());
-        //    this.IsRefreshing = false;
-        //}
-        //#endregion
+            MainViewModel.GetInstance().ProductsList = (List<Product>)response.Result;
+            this.Products = new ObservableCollection<ProductItemViewModel>(
+                this.ToProductItemViewModel());
+            this.IsRefreshing = false;
+        }
+        #endregion
 
-        //#region Methods
-        //private IEnumerable<LandItemViewModel> ToLandItemViewModel()
-        //{
-        //    return MainViewModel.GetInstance().LandsList.Select(l => new LandItemViewModel
-        //    {
-        //        Alpha2Code = l.Alpha2Code,
-        //        Alpha3Code = l.Alpha3Code,
-        //        AltSpellings = l.AltSpellings,
-        //        Area = l.Area,
-        //        Borders = l.Borders,
-        //        CallingCodes = l.CallingCodes,
-        //        Capital = l.Capital,
-        //        Cioc = l.Cioc,
-        //        Currencies = l.Currencies,
-        //        Demonym = l.Demonym,
-        //        Flag = l.Flag,
-        //        Gini = l.Gini,
-        //        Languages = l.Languages,
-        //        Latlng = l.Latlng,
-        //        Name = l.Name,
-        //        NativeName = l.NativeName,
-        //        NumericCode = l.NumericCode,
-        //        Population = l.Population,
-        //        Region = l.Region,
-        //        RegionalBlocs = l.RegionalBlocs,
-        //        Subregion = l.Subregion,
-        //        Timezones = l.Timezones,
-        //        TopLevelDomain = l.TopLevelDomain,
-        //        Translations = l.Translations,
-        //    });
-        //}
+        #region Methods
+        private IEnumerable<ProductItemViewModel> ToProductItemViewModel()
+        {
+            return MainViewModel.GetInstance().ProductsList.Select(l => new ProductItemViewModel
+            {
+                Alpha2Code = l.Alpha2Code,
+                Alpha3Code = l.Alpha3Code,
+                AltSpellings = l.AltSpellings,
+                Area = l.Area,
+                Borders = l.Borders,
+                CallingCodes = l.CallingCodes,
+                Capital = l.Capital,
+                Cioc = l.Cioc,
+                Currencies = l.Currencies,
+                Demonym = l.Demonym,
+                Flag = l.Flag,
+                Gini = l.Gini,
+                Languages = l.Languages,
+                Latlng = l.Latlng,
+                Name = l.Name,
+                NativeName = l.NativeName,
+                NumericCode = l.NumericCode,
+                Population = l.Population,
+                Region = l.Region,
+                RegionalBlocs = l.RegionalBlocs,
+                Subregion = l.Subregion,
+                Timezones = l.Timezones,
+                TopLevelDomain = l.TopLevelDomain,
+                Translations = l.Translations,
+            });
+        }
 
-        //#endregion
+        #endregion
 
-        //#region Commands
-        //public ICommand RefreshCommand
-        //{
-        //    get
-        //    {
-        //        return new RelayCommand(LoadLands);
-        //    }
-        //}
+        #region Commands
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new RelayCommand(LoadProducts);
+            }
+        }
 
-        //public ICommand SearchCommand
-        //{
-        //    get
-        //    {
-        //        return new RelayCommand(Search);
-        //    }
-        //}
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new RelayCommand(Search);
+            }
+        }
 
-        //private void Search()
-        //{
-        //    if (string.IsNullOrEmpty(this.Filter))
-        //    {
-        //        this.Lands = new ObservableCollection<LandItemViewModel>(
-        //            this.ToLandItemViewModel());
-        //    }
-        //    else
-        //    {
-        //        this.Lands = new ObservableCollection<LandItemViewModel>(
-        //            this.ToLandItemViewModel().Where(
-        //                l => l.Name.ToLower().Contains(this.Filter.ToLower()) ||
-        //                     l.Capital.ToLower().Contains(this.Filter.ToLower())));
-        //    }
-        //}
-        //#endregion
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(this.Filter))
+            {
+                this.Products = new ObservableCollection<ProductItemViewModel>(
+                    this.ToProductItemViewModel());
+            }
+            else
+            {
+                this.Products = new ObservableCollection<ProductItemViewModel>(
+                    this.ToProductItemViewModel().Where(
+                        l => l.Name.ToLower().Contains(this.Filter.ToLower()) ||
+                             l.Capital.ToLower().Contains(this.Filter.ToLower())));
+            }
+        }
+        #endregion
     }
 }
